@@ -114,5 +114,31 @@ void loop() {
       // Wait
   }
   
+  // mode 4 
+  stateChanged = false;
+  allOff();
+  allOn();
+  Serial.println("Mode 3"); 
+  while(!stateChanged) {
+      //outter on
+      for (int i = outterStartPin; i<= outterStopPin; i++) {
+        digitalWrite(i,HIGH);
+      }
+      delay(100);
+      for (int i = outterStartPin; i<= outterStopPin; i++) {
+        digitalWrite(i,LOW);
+      }
+      for (int i = innerStartPin; i<= innerStopPin; i++) {
+        digitalWrite(i,HIGH);
+      }
+      delay(100);
+      for (int i = innerStartPin; i<= innerStopPin; i++) {
+        digitalWrite(i,LOW);
+      }
+      digitalWrite(bPin,HIGH);
+      delay(500);
+      digitalWrite(bPin,LOW);
+      delay(100);
+  }
   
 }
